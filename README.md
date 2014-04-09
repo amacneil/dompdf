@@ -124,6 +124,39 @@ will reside
  * Or download a nightly (the latest, unreleased code) from
    http://eclecticgeek.com/dompdf
 
+Installation
+============
+
+DOMPDF can be installed manually, or using [Composer](http://getcomposer.org/).
+
+To install with Composer, simply add the requirement to your `composer.json` file:
+
+```json
+{
+    "require": {
+        "dompdf/dompdf": "dev-master"
+    }
+}
+```
+
+And run Composer to update your dependencies:
+
+    $ curl -s http://getcomposer.org/installer | php
+    $ php composer.phar update
+    
+Before you can use DOMPDF in your application, you must manually include its configuration file, like so:
+
+```php
+// disable DOMPDF's internal autoloader if you are using Composer
+define('DOMPDF_ENABLE_AUTOLOAD', false);
+
+// set any other configuration variables you need here
+define('DOMPDF_LOG_OUTPUT_FILE', false);
+
+// include DOMPDF's default configuration
+require_once '/path/to/vendor/dompdf/dompdf/dompdf_config.inc.php';
+```
+
 Limitations (Known Issues)
 ==========================
  * not particularly tolerant to poorly-formed HTML input. To avoid any
